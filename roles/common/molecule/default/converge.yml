@@ -1,0 +1,14 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    ansible_user: ansible
+  tasks:
+    - name: Update apt cache (on Debian)
+      apt:
+        update_cache: true
+        cache_valid_time: 3600
+      when: ansible_os_family == 'Debian'
+    - name: "Include common"
+      include_role:
+        name: "common"

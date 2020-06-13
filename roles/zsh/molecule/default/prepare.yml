@@ -1,0 +1,54 @@
+---
+- name: Prepare
+  hosts: all
+  become: True
+  vars:
+    remote_ansible_user: ansible
+  tasks:
+    - name: Make sure we have a 'wheel' group
+      group:
+        name: wheel
+        state: present
+      when: ansible_facts['os_family'] == "RedHat"
+
+    - name: Make sure we have a 'sudo' group
+      group:
+        name: sudo
+        state: present
+      when: ansible_facts['os_family'] == "Debian"
+
+    - name: Allow 'wheel' group to have passwordless sudo
+      lineinfile:
+        dest: /etc/sudoers
+        state: present
+        regexp: "^%wheel  ALL=(ALL)       NOPASSWD: ALL"
+        line: "%wheel ALL=(ALL) NOPASSWD: ALL"
+        validate: "visudo -cf %s"
+      when: ansible_facts['os_family'] == "RedHat"
+
+    - name: Allow 'sudo' group to have passwordless sudo
+      lineinfile:
+        dest: /etc/sudoers
+        state: present
+        regexp: "^%sudo ALL=(ALL) NOPASSWD:ALL"
+        line: "%sudo ALL=(ALL) NOPASSWD:ALL"
+        validate: "visudo -cf %s"
+      when: ansible_facts['os_family'] == "Debian"
+
+    - name: Add sudoers users to wheel group
+      user:
+        name: "{{ remote_ansible_user }}"
+        groups: wheel
+        append: yes
+        state: present
+        createhome: yes
+      when: ansible_facts['os_family'] == "RedHat"
+
+    - name: Add sudoers users to sudo group
+      user:
+        name: "{{ remote_ansible_user }}"
+        groups: sudo
+        append: yes
+        state: present
+        createhome: yes
+      when: ansible_facts['os_family'] == "Debian"

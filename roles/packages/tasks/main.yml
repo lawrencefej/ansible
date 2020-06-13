@@ -1,0 +1,20 @@
+---
+# tasks file for packages
+- name: Update cache on Debian based systems
+  apt:
+    update_cache: true
+    cache_valid_time: 3600
+  when: ansible_facts['os_family'] == "Debian"
+
+- name: Install base Packages
+  package:
+    name:
+      - rsync
+      - wget
+      - iperf3
+      - zsh
+      - curl
+      - tree
+      - python3-pip
+    state: latest
+    become: true

@@ -1,0 +1,10 @@
+packages_packages:
+  - git
+  - rsync
+  - wget
+  - iperf3
+  - zsh
+  - curl
+  - tree
+
+testy: test

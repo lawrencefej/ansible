@@ -1,0 +1,17 @@
+---
+# tasks file for zsh
+- name: Install zsh
+  package:
+    state: latest
+    name: zsh
+    update_cache: true
+  become: true
+
+- name: Make sure users exist and has zsh as the default shell
+  user:
+    name: "{{ name }}"
+    append: yes
+    state: present
+    createhome: yes
+    shell: /bin/zsh
+  become: true

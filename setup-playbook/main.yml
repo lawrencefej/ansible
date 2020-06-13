@@ -1,0 +1,13 @@
+---
+- hosts: all
+  vars:
+    user: lawrence
+
+  pre_tasks:
+    - name: upgrade all packages
+      package:
+        name: "*"
+        state: latest
+      become: yes
+  roles:
+    - common

@@ -1,0 +1,26 @@
+- name: test
+  hosts: all
+
+  # pre_tasks:
+  #   - debug: var=ansible_os_family
+  #   - name: Load variables
+  #     include_vars: "{{ item }}"
+  #     with_firs
+  tasks:
+    - name: Include variables
+      include_vars:
+        file: testvar.yml
+        name: stuff
+
+    - name: Include centos variables
+      include_vars:
+        file: vars_RedHat.yml
+        name: centos
+      when: ansible_facts['os_family'] == "RedHat"
+
+    - debug:
+        msg: "{{ stuff.testy }}"
+
+    - name: print var
+      command: "echo {{ centos.name }}"
+      when: ansible_facts['os_family'] == "RedHat"

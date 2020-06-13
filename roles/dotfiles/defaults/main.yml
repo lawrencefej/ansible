@@ -1,0 +1,55 @@
+---
+# defaults file for dotfiles
+user: lawrence
+home: "/home/{{ user }}"
+config: "{{ home }}/.config"
+cache: "{{ home }}/.cache"
+zshconfig: "{{ config }}/zsh"
+zshcache: "{{ cache }}/zsh"
+zsh_history_file: "{{ zshcache }}/.zsh_history"
+dotfiles: "{{ config }}/.dotfiles"
+
+config_files:
+  - name: .zshrc
+    src: "{{ dotfiles }}/zsh"
+    path: "{{ home }}"
+  - name: .gitconfig
+    src: "{{ dotfiles }}/git"
+    path: "{{ home }}"
+  - name: .p10k.zsh
+    src: "{{ dotfiles }}/zsh"
+    path: "{{ home }}"
+
+plugins:
+  - name: .dotfiles
+    url: https://github.com/lawrencefej/.dotfiles.git
+    path: "{{ config }}"
+  - name: powerlevel10k
+    url: https://github.com/romkatv/powerlevel10k.git
+    path: "{{ zshconfig }}"
+  - name: zsh-autosuggestions
+    url: https://github.com/zsh-users/zsh-autosuggestions
+    path: "{{ zshconfig }}"
+  - name: zsh-history-substring-search
+    url: https://github.com/zsh-users/zsh-history-substring-search
+    path: "{{ zshconfig }}"
+  - name: zsh-syntax-highlight
+    url: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    path: "{{ zshconfig }}"
+
+folders:
+  - "{{ zshconfig }}"
+  - "{{ zshcache }}"
+
+files:
+  - "{{ zsh_history_file }}"
+
+aliases:
+  - name: centos_aliases.zsh
+    insertafter: functions.zsh
+    line: source ~/.dotfiles/aliases/centos_aliases.zsh
+    family: RedHat
+  - name: debian_aliases.zsh
+    insertafter: functions.zsh
+    line: source ~/.dotfiles/aliases/debian_aliases.zsh
+    family: Debian

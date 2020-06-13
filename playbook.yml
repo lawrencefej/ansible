@@ -1,0 +1,13 @@
+---
+- hosts: all
+  tasks:
+    - name: Perform tasks for RedHat based distros
+      include_tasks:: set_RedHat.yml
+      when: ansible_os_family == 'RedHat'
+
+    - name: Perform tasks for Debian based distros
+      include_tasks:: set_Debian.yml
+      when: ansible_os_family == 'Debian'
+
+  roles:
+    - zsh

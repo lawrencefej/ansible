@@ -1,0 +1,19 @@
+---
+# vars file for common
+pkgs:
+  - git
+  - rsync
+  - wget
+  - iperf3
+  - zsh
+  - curl
+  - tree
+  - python3-pip
+  - cargo
+
+RedHat_pkgs:
+  - net-tools
+  - bind-utils
+
+Debian_pkgs:
+  - dnsutils
