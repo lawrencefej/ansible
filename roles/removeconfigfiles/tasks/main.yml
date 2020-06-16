@@ -1,0 +1,7 @@
+---
+# tasks file for removeconfigfiles
+- name: Remove config files if they exist
+  file:
+    path: "{{ item.path }}/{{ item.name }}"
+    state: absent
+  loop: "{{ config_files }}"

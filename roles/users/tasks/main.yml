@@ -1,0 +1,30 @@
+---
+- name: Add user and set default shell
+  user:
+    name: "{{ user }}"
+    create_home: yes
+    shell: /bin/zsh
+    state: present
+  become: yes
+
+- name: Add user to wheel group on RedHat systems
+  user:
+    name: "{{ user }}"
+    groups:
+      - wheel
+    append: yes
+    state: present
+    createhome: yes
+  become: yes
+  when: ansible_facts['os_family'] == "RedHat"
+
+- name: Add user sudo group on Debian servers
+  user:
+    name: "{{ user }}"
+    groups:
+      - sudo
+    append: yes
+    state: present
+    createhome: yes
+  become: yes
+  when: ansible_facts['os_family'] == "Debian"

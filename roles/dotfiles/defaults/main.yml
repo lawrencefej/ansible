@@ -19,6 +19,9 @@ config_files:
   - name: .p10k.zsh
     src: "{{ dotfiles }}/zsh"
     path: "{{ home }}"
+  - name: .vimrc
+    src: "{{ dotfiles }}/vim"
+    path: "{{ home }}"
 
 plugins:
   - name: .dotfiles
@@ -33,7 +36,7 @@ plugins:
   - name: zsh-history-substring-search
     url: https://github.com/zsh-users/zsh-history-substring-search
     path: "{{ zshconfig }}"
-  - name: zsh-syntax-highlight
+  - name: zsh-syntax-highlighting
     url: https://github.com/zsh-users/zsh-syntax-highlighting.git
     path: "{{ zshconfig }}"
 
@@ -47,9 +50,9 @@ files:
 aliases:
   - name: centos_aliases.zsh
     insertafter: functions.zsh
-    line: source ~/.dotfiles/aliases/centos_aliases.zsh
+    line: source "{{ dotfiles }}/aliases/centos_aliases.zsh"
     family: RedHat
   - name: debian_aliases.zsh
     insertafter: functions.zsh
-    line: source ~/.dotfiles/aliases/debian_aliases.zsh
+    line: source "{{ dotfiles }}/aliases/debian_aliases.zsh"
     family: Debian

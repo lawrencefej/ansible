@@ -1,0 +1,35 @@
+---
+# tasks file for setup
+- name: Make sure we have a 'wheel' group
+  group:
+    name: wheel
+    state: present
+  become: yes
+  when: ansible_facts['os_family'] == "RedHat"
+
+- name: Make sure we have a 'sudo' group
+  group:
+    name: sudo
+    state: present
+  become: yes
+  when: ansible_facts['os_family'] == "Debian"
+
+- name: Allow 'wheel' group to have passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: "^%wheel  ALL=(ALL)       NOPASSWD: ALL"
+    line: "%wheel ALL=(ALL) NOPASSWD: ALL"
+    validate: "visudo -cf %s"
+  become: yes
+  when: ansible_facts['os_family'] == "RedHat"
+
+- name: Allow 'sudo' group to have passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: "^%sudo ALL=(ALL) NOPASSWD:ALL"
+    line: "%sudo ALL=(ALL) NOPASSWD:ALL"
+    validate: "visudo -cf %s"
+  become: yes
+  when: ansible_facts['os_family'] == "Debian"

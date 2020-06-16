@@ -1,0 +1,21 @@
+---
+- name: Prepare
+  hosts: all
+  become: True
+  vars:
+    remote_ansible_user: lawrence
+  tasks:
+    - name: Add user for test
+      user:
+        name: "{{ remote_ansible_user }}"
+        group:
+        append: yes
+        state: present
+        createhome: yes
+
+    - name: Install git
+      package:
+        state: present
+        name:
+          - git
+        update_cache: true

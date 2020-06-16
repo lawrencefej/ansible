@@ -1,0 +1,26 @@
+- name: Setup Server
+  hosts: wsl
+  connection: local
+  vars:
+    user: lawrence
+
+  roles:
+    - setup
+    - role: users
+      vars:
+        user: lawrence
+    - common
+    - users
+    - removeconfigfiles
+    - dotfiles
+
+  tasks:
+    - name: Install Lsd
+      command: cargo install lsd
+      register: test
+      ignore_errors: True
+    - name: Update packages
+      package:
+        name: "*"
+        state: latest
+      become: yes

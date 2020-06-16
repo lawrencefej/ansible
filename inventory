@@ -1,8 +1,5 @@
-[local]
+[wsl]
 localhost
-
-[local:vars]
-ansible_connection=local
 
 [fleet:children]
 centos
@@ -12,6 +9,9 @@ ubuntu
 ansibleclient
 ansibleclient1
 ansibleclient2
+zsh
+centos.lawrencefej.com
+ansibletest
 
 
 [ubuntu]

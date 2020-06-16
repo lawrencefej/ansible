@@ -1,7 +1,0 @@
----
-# tasks file for test
-- name: Install Zsh
-  become: true
-  package:
-    name: name
-    state: present

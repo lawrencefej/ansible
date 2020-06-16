@@ -1,10 +1,4 @@
 ---
-# tasks file for dotfiles
-# - name: get the username running the deploy
-#   become: false
-#   local_action: command echo $HOME
-#   register: username_on_the_host
-
 - name: Create folders
   file:
     path: "{{ item }}"
@@ -32,15 +26,6 @@
     depth: "1"
   with_items: "{{ plugins }}"
 
-- name: check if file is symlink
-  stat:
-    path: "{{ home }}/.bashrc"
-  register: st
-
-- name: "debug {{ plugins }}"
-  debug:
-    var: "{{ plugins }}"
-
 - name: "symlink config files"
   file:
     src: "{{ item.src }}/{{ item.name }}"
@@ -50,14 +35,12 @@
     group: "{{ user }}"
     mode: "0644"
   with_items: "{{ config_files }}"
-# - name: Add distro specifc aliases
-#   lineinfile:
-#     path: "{{ home }}/.zshrc"
-#     regexp: "{{ item.name }}$"
-#     insertafter: "{{ item.insertafter }}$"
-#     line: "{{ item.line }}"
-#   when: ansible_facts['os_family'] == item.family
-#   with_items: "{{ aliases }}"
 
-# create symlinks with stow
-# tdlr
+- name: Add distro specifc aliases
+  lineinfile:
+    path: "{{ home }}/.zshrc"
+    regexp: "{{ item.name }}$"
+    insertafter: "{{ item.insertafter }}$"
+    line: "{{ item.line }}"
+  when: ansible_facts['os_family'] == item.family
+  with_items: "{{ aliases }}"

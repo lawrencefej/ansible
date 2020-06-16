@@ -1,5 +1,4 @@
 ---
-# tasks file for common
 - name: Install EPEL on redhat distros
   yum:
     state: present
@@ -11,7 +10,7 @@
 - name: Install RedHat specific packages
   yum:
     state: present
-    name: "{{ redhat_pkgs }}"
+    name: "{{ RedHat_pkgs }}"
     update_cache: true
   become: true
   when: ansible_facts['os_family'] == "RedHat"
@@ -19,18 +18,10 @@
 - name: Install Debian specific packages
   yum:
     state: present
-    name: "{{ debian_pkgs }}"
+    name: "{{ Debian_pkgs }}"
     update_cache: true
   become: true
   when: ansible_facts['os_family'] == "Debian"
-
-# - name: Install Distro specific packages
-#   yum:
-#     state: present
-#     name: "{{ Debian_pkgs }}"
-#     update_cache: true
-#   become: true
-#   when: ansible_facts['os_family'] == "Debian"
 
 - name: Install common packages
   package:
@@ -38,16 +29,3 @@
     name: "{{ pkgs }}"
     update_cache: true
   become: true
-
-# - name: Run lsd
-#   command: lsd /
-#   register: test
-# ignore_errors: yes
-# - name: install lsd
-#   command: cargo install lsd
-#   register: test
-#   ignore_errors: yes
-
-- name: test var
-  debug:
-    var: test

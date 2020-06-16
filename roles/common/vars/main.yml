@@ -1,13 +1,13 @@
 ---
 # vars file for common
 pkgs:
+  - vim
   - git
-  - rsync
+  - zsh
   - wget
   - iperf3
-  - zsh
   - curl
-  - tree
+  - nmap
   - python3-pip
   - cargo
 
