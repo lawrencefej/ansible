@@ -50,9 +50,9 @@ files:
 aliases:
   - name: centos_aliases.zsh
     insertafter: functions.zsh
-    line: source "{{ dotfiles }}/aliases/centos_aliases.zsh"
+    line: "source {{ dotfiles }}/aliases/centos_aliases.zsh"
     family: RedHat
   - name: debian_aliases.zsh
     insertafter: functions.zsh
-    line: source "{{ dotfiles }}/aliases/debian_aliases.zsh"
+    line: "source {{ dotfiles }}/aliases/debian_aliases.zsh"
     family: Debian
