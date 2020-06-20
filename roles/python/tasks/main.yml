@@ -1,0 +1,6 @@
+---
+# tasks file for python
+- name: Install python packages
+  pip:
+    name: "{{ packages }}"
+    state: latest
