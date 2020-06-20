@@ -25,19 +25,19 @@ config_files:
 
 plugins:
   - name: .dotfiles
-    url: https://github.com/lawrencefej/.dotfiles.git
+    url: git@github.com:lawrencefej/.dotfiles.git
     path: "{{ config }}"
   - name: powerlevel10k
-    url: https://github.com/romkatv/powerlevel10k.git
+    url: git@github.com:romkatv/powerlevel10k.git
     path: "{{ zshconfig }}"
   - name: zsh-autosuggestions
-    url: https://github.com/zsh-users/zsh-autosuggestions
+    url: git@github.com:zsh-users/zsh-autosuggestions.git
     path: "{{ zshconfig }}"
   - name: zsh-history-substring-search
-    url: https://github.com/zsh-users/zsh-history-substring-search
+    url: git@github.com:zsh-users/zsh-history-substring-search.git
     path: "{{ zshconfig }}"
   - name: zsh-syntax-highlighting
-    url: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    url: git@github.com:zsh-users/zsh-syntax-highlighting.git
     path: "{{ zshconfig }}"
 
 folders:
