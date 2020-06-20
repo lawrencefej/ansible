@@ -3,3 +3,5 @@
 user: lawrence
 home: "/home/{{ user }}"
 config: "{{ home }}/.config"
+dest: "{{ config }}/.asdf"
+repo: git@github.com:asdf-vm/asdf.git

@@ -2,7 +2,7 @@
 # tasks file for asdf
 - name: Install asdf
   git:
-    dest: "{{ config }}/.asdf"
-    repo: https://github.com/asdf-vm/asdf.git
+    dest: "{{ dest }}"
+    repo: "{{ repo }}"
     force: yes
     version: v0.7.8
