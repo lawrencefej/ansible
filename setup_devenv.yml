@@ -11,8 +11,10 @@
         user: lawrence
     - common
     - users
-    - removeconfigfiles
+    # - removeconfigfiles
     - dotfiles
+    - asdf
+    - python
 
   tasks:
     - name: Install Lsd
