@@ -13,3 +13,7 @@ bash-completion
   - iperf3
   - zsh
   - curl
+
+Python
+- docker-py
+- molecule

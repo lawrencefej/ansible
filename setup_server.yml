@@ -13,6 +13,7 @@
     - users
     - removeconfigfiles
     - dotfiles
+    - asdf
 
   tasks:
     - name: Install Lsd

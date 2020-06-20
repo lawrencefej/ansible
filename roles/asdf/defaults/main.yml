@@ -1,0 +1,5 @@
+---
+# defaults file for asdf
+user: lawrence
+home: "/home/{{ user }}"
+config: "{{ home }}/.config"
