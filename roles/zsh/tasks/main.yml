@@ -1,0 +1,29 @@
+---
+# tasks file for zsh
+
+- name: zsh | Install zsh
+  become: yes
+  package:
+    name: zsh
+    state: latest
+
+- name: zsh | Set zsh as default shell
+  user:
+    name: "{{ dotfiles_user }}"
+    shell: /bin/zsh
+    state: present
+
+- name: zsh | Check for oh-my-zsh installation
+  stat:
+    path: "{{ user_home }}/.oh-my-zsh"
+  register: oh_my_zsh
+
+- name: Print var
+  debug:
+    var: oh_my_zsh
+
+- name: zsh | Install oh-my-zsh
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  become: yes
+  become_user: "{{ dotfiles_user }}"
+  when: not oh_my_zsh.stat.exists

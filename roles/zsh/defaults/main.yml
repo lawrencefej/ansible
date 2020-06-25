@@ -1,0 +1,4 @@
+---
+# defaults file for zsh
+dotfiles_user: lawrence
+user_home: "home/{{ dotfiles_user }}"
