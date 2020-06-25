@@ -1,0 +1,33 @@
+---
+# tasks file for git
+
+- name: Git | Install git
+  package:
+    state: latest
+    name: git
+    update_cache: true
+  become: true
+
+- name: Git | Create config folder
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0744"
+    owner: "{{ git_user }}"
+    group: "{{ git_user }}"
+  with_items: "{{ folders }}"
+
+- name: Git | Clone dotfiles
+  git:
+    dest: "{{ config }}/.dotfiles"
+    repo: https://github.com/lawrencefej/.dotfiles.git
+    force: yes
+
+- name: Git | Symlink .gitconfig
+  file:
+    src: "{{ dotfiles }}/git"
+    path: "{{ home }}/.gitconfig"
+    state: link
+    owner: "{{ git_user }}"
+    group: "{{ git_user }}"
+    mode: "0644"

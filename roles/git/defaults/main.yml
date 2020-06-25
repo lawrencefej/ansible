@@ -1,0 +1,12 @@
+---
+# defaults file for git
+
+git_user: lawrence
+home: "/home/{{ git_user }}"
+config: "{{ home }}/.config"
+cache: "{{ home }}/.cache"
+dotfiles: "{{ config }}/.dotfiles"
+
+folders:
+  - "{{ config }}"
+  - "{{ cache }}"
