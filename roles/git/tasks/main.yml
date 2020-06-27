@@ -1,14 +1,14 @@
 ---
 # tasks file for git
 
-- name: Git | Install git
+- name: Install git
   package:
     state: latest
     name: git
     update_cache: true
   become: true
 
-- name: Git | Create config folder
+- name: Create config folder
   file:
     path: "{{ item }}"
     state: directory
@@ -17,15 +17,16 @@
     group: "{{ git_user }}"
   with_items: "{{ folders }}"
 
-- name: Git | Clone dotfiles
+- name: Clone dotfiles
   git:
     dest: "{{ config }}/.dotfiles"
-    repo: https://github.com/lawrencefej/.dotfiles.git
+    repo: "{{ dotfiles_repo }}"
     force: yes
+    accept_hostkey: yes
 
-- name: Git | Symlink .gitconfig
+- name: Symlink .gitconfig
   file:
-    src: "{{ dotfiles }}/git"
+    src: "{{ dotfiles }}/git/.gitconfig"
     path: "{{ home }}/.gitconfig"
     state: link
     owner: "{{ git_user }}"

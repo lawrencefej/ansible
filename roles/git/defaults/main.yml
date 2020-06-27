@@ -6,6 +6,7 @@ home: "/home/{{ git_user }}"
 config: "{{ home }}/.config"
 cache: "{{ home }}/.cache"
 dotfiles: "{{ config }}/.dotfiles"
+dotfiles_repo: https://github.com/lawrencefej/.dotfiles.git
 
 folders:
   - "{{ config }}"

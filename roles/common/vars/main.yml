@@ -2,8 +2,6 @@
 # vars file for common
 pkgs:
   - vim
-  - git
-  - zsh
   - wget
   - iperf3
   - curl

@@ -1,8 +1,21 @@
 ---
 # tasks file for asdf
+
 - name: Install asdf
   git:
-    dest: "{{ dest }}"
+    dest: "{{ asdf_dir }}"
     repo: "{{ repo }}"
     force: yes
-    version: v0.7.8
+    version: "{{ asdf_version }}"
+
+- name: "Install asdf plugins"
+  shell: >-
+    . {{ asdf_src }} &&
+    asdf plugin-add nodejs
+  args:
+    executable: /bin/zsh
+    # creates: "{{ asdf_dir }}/plugins/{{ item.name }}"
+    chdir: "{{ user_home }}"
+  register: asdf_res
+  failed_when: asdf_res.rc == 1
+  changed_when: asdf_res.rc == 0
