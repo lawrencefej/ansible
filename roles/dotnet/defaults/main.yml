@@ -1,0 +1,9 @@
+---
+# defaults file for dotnet
+
+dotnet_packages:
+  - dotnet-sdk-3.1
+  - dotnet-sdk-2.1
+
+dotnet_dependencies:
+  - apt-transport-https

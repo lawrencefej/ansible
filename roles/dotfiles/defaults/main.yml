@@ -16,28 +16,19 @@ config_files:
   - name: .gitconfig
     src: "{{ dotfiles }}/git"
     path: "{{ home }}"
-  - name: .p10k.zsh
-    src: "{{ dotfiles }}/zsh"
-    path: "{{ home }}"
   - name: .vimrc
     src: "{{ dotfiles }}/vim"
     path: "{{ home }}"
 
 plugins:
-  - name: .dotfiles
-    url: git@github.com:lawrencefej/.dotfiles.git
-    path: "{{ config }}"
-  - name: powerlevel10k
-    url: git@github.com:romkatv/powerlevel10k.git
-    path: "{{ zshconfig }}"
   - name: zsh-autosuggestions
-    url: git@github.com:zsh-users/zsh-autosuggestions.git
+    repo: https://github.com/zsh-users/zsh-autosuggestions.git
     path: "{{ zshconfig }}"
   - name: zsh-history-substring-search
-    url: git@github.com:zsh-users/zsh-history-substring-search.git
+    repo: https://github.com/zsh-users/zsh-history-substring-search.git
     path: "{{ zshconfig }}"
   - name: zsh-syntax-highlighting
-    url: git@github.com:zsh-users/zsh-syntax-highlighting.git
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
     path: "{{ zshconfig }}"
 
 folders:
