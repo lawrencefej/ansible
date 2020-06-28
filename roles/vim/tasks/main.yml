@@ -1,0 +1,33 @@
+---
+# tasks file for vim
+
+- name: Install git
+  package:
+    state: latest
+    name: vim
+    update_cache: true
+  become: true
+
+- name: Check if .vimrc is a link
+  stat:
+    path: "{{ user_home }}/.vimrc"
+  register: file
+
+- name: print var
+  debug:
+    var: file
+
+- name: Remove .vimrc
+  file:
+    path: "{{ user_home }}/.vimrc"
+    state: absent
+  when: file.stat.exists == true and file.stat.islnk == false
+
+- name: Symlink .vimrc
+  file:
+    src: "{{ dotfiles }}/vim/.vimrc"
+    path: "{{ home }}/.vimrc"
+    state: link
+    owner: "{{ git_user }}"
+    group: "{{ git_user }}"
+    mode: "0644"
