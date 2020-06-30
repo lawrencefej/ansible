@@ -24,6 +24,17 @@
     force: yes
     accept_hostkey: yes
 
+- name: Check if gitconfig is a link
+  stat:
+    path: "{{ user_home }}/.gitconfig"
+  register: file
+
+- name: Remove gitconfig
+  file:
+    path: "{{ user_home }}/.gitconfig"
+    state: absent
+  when: file.stat.exists == true and file.stat.islnk == false
+
 - name: Symlink .gitconfig
   file:
     src: "{{ dotfiles }}/git/.gitconfig"
