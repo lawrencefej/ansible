@@ -1,0 +1,28 @@
+---
+- name: Setup WSL
+  hosts: wsl
+  connection: local
+  vars:
+    main_user: lawrence
+    win_user: Lawrence
+    user_home: "/home/{{ main_user }}"
+    user_config: "{{ user_home }}/.config"
+    user_cache: "{{ user_home }}/.cache"
+
+  roles:
+    - setup
+    - common
+    - users
+    - users
+    - role: git
+      vars:
+        dotfiles_repo: git@github.com:lawrencefej/.dotfiles.git
+    - zsh
+    - zshplugins
+    - python
+    - nvm
+    - vim
+    - dotnet
+    - lsd
+    - wslssh
+    - update

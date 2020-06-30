@@ -6,13 +6,14 @@ centos
 ubuntu
 
 [centos]
-ansibleclient
-ansibleclient1
-ansibleclient2
-zsh
-centos.lawrencefej.com
-ansibletest
+192.168.10.181
 
 
 [ubuntu]
-ubuntu.lawrencefej.com
+192.168.10.160
+
+[wsltest]
+192.168.10.166
+
+[servertest]
+192.168.10.159
