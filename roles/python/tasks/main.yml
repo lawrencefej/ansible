@@ -1,6 +1,14 @@
 ---
 # tasks file for python
+
+- name: Install PIP
+  package:
+    state: latest
+    name: python3-pip
+  update_cache: true
+  become: true
+
 - name: Install python packages
   pip:
-    name: "{{ packages }}"
+    name: "{{ python_packages }}"
     state: latest
