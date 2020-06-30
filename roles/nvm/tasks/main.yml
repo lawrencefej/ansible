@@ -1,0 +1,24 @@
+# ---
+# # tasks file for nvm
+
+- name: Install node from apt
+  package:
+    state: latest
+    name: "{{ nvm_packages }}"
+    update_cache: yes
+  become: yes
+
+- name: Install TLDR
+  npm:
+    name: tldr
+    global: yes
+    state: absent
+    executable: /usr/bin/npm
+  become: yes
+
+- name: Install zsh-nvm
+  git:
+    dest: /home/lawrence/.oh-my-zsh/custom/plugins/zsh-nvm
+    repo: https://github.com/lukechilds/zsh-nvm
+    force: yes
+    depth: "1"

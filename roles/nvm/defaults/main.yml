@@ -1,0 +1,6 @@
+---
+# defaults file for nvm
+
+nvm_packages:
+  - nodejs
+  - npm
