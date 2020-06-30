@@ -1,0 +1,8 @@
+---
+# tasks file for update
+
+- name: Update packages
+  package:
+    name: "*"
+    state: latest
+  become: yes
