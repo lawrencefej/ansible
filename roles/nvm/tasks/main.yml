@@ -18,7 +18,7 @@
 
 - name: Install zsh-nvm
   git:
-    dest: /home/lawrence/.oh-my-zsh/custom/plugins/zsh-nvm
+    dest: "{{ user_home }}/.oh-my-zsh/custom/plugins/zsh-nvm"
     repo: https://github.com/lukechilds/zsh-nvm
     force: yes
     depth: "1"

@@ -16,6 +16,6 @@
 - name: Set ssh key permission
   file:
     path: "{{ user_home }}/id_rsa"
-    group: "{{ user }}"
-    owner: "{{ user }}"
+    group: "{{ main_user }}"
+    owner: "{{ main_user }}"
     mode: "0600"

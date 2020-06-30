@@ -1,11 +1,8 @@
 ---
 # defaults file for zshplugins
-zsh_user: lawrence
-home: "/home/{{ zsh_user }}"
-zsh_theme_path: "{{ home }}/.oh-my-zsh/custom/themes"
-zsh_plugin_path: "{{ home }}/.oh-my-zsh/custom/plugins"
-config: "{{ home }}/.config"
-dotfiles: "{{ config }}/.dotfiles"
+
+zsh_theme_path: "{{ user_home }}/.oh-my-zsh/custom/themes"
+zsh_plugin_path: "{{ user_home }}/.oh-my-zsh/custom/plugins"
 
 plugins:
   - name: zsh-autosuggestions

@@ -1,7 +1,7 @@
 ---
 # tasks file for vim
 
-- name: Install git
+- name: Install Vim
   package:
     state: latest
     name: vim
@@ -22,8 +22,8 @@
 - name: Symlink .vimrc
   file:
     src: "{{ dotfiles }}/vim/.vimrc"
-    path: "{{ home }}/.vimrc"
+    path: "{{ user_home }}/.vimrc"
     state: link
-    owner: "{{ git_user }}"
-    group: "{{ git_user }}"
+    owner: "{{ main_user }}"
+    group: "{{ main_user }}"
     mode: "0644"

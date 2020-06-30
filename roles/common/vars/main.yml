@@ -1,13 +1,10 @@
 ---
 # vars file for common
 pkgs:
-  - vim
   - wget
   - iperf3
   - curl
   - nmap
-  - python3-pip
-  - cargo
 
 RedHat_pkgs:
   - net-tools

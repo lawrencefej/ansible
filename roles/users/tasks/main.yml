@@ -1,7 +1,7 @@
 ---
 - name: Add user and set default shell
   user:
-    name: "{{ user }}"
+    name: "{{ main_user }}"
     create_home: yes
     shell: /bin/zsh
     state: present
@@ -9,7 +9,7 @@
 
 - name: Add user to wheel group on RedHat systems
   user:
-    name: "{{ user }}"
+    name: "{{ main_user }}"
     groups:
       - wheel
     append: yes
@@ -20,7 +20,7 @@
 
 - name: Add user sudo group on Debian servers
   user:
-    name: "{{ user }}"
+    name: "{{ main_user }}"
     groups:
       - sudo
     append: yes

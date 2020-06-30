@@ -1,7 +1,2 @@
 ---
 # defaults file for zsh
-
-dotfiles_user: lawrence
-home: "/home/{{ dotfiles_user }}"
-config: "{{ home }}/.config"
-dotfiles: "{{ config }}/.dotfiles"

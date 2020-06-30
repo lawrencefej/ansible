@@ -9,29 +9,29 @@
 
 - name: Set zsh as default shell
   user:
-    name: "{{ dotfiles_user }}"
+    name: "{{ main_user }}"
     shell: /bin/zsh
     state: present
 
 - name: Check for oh-my-zsh installation
   stat:
-    path: "{{ home }}/.oh-my-zsh"
+    path: "{{ user_home }}/.oh-my-zsh"
   register: oh_my_zsh
 
 - name: Clone oh_my_zsh
   git:
-    dest: "{{ home }}/.oh-my-zsh"
+    dest: "{{ user_home }}/.oh-my-zsh"
     repo: https://github.com/robbyrussell/oh-my-zsh.git
     depth: "1"
   become: yes
-  become_user: "{{ dotfiles_user }}"
+  become_user: "{{ main_user }}"
   when: not oh_my_zsh.stat.exists
 
 - name: Symlink .zshrc
   file:
-    src: "/home/lawrence/.config/.dotfiles/zsh/.zshrc"
-    path: "/home/lawrence/.zshrc"
+    src: "{{ user_config }}/.dotfiles/zsh/.zshrc"
+    path: "{{ user_home }}/.zshrc"
     state: link
-    owner: "{{ git_user }}"
-    group: "{{ git_user }}"
+    owner: "{{ main_user }}"
+    group: "{{ main_user }}"
     mode: "0644"

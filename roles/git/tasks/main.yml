@@ -13,13 +13,13 @@
     path: "{{ item }}"
     state: directory
     mode: "0744"
-    owner: "{{ git_user }}"
-    group: "{{ git_user }}"
+    owner: "{{ main_user }}"
+    group: "{{ main_user }}"
   with_items: "{{ folders }}"
 
 - name: Clone dotfiles
   git:
-    dest: "{{ config }}/.dotfiles"
+    dest: "{{ user_config }}/.dotfiles"
     repo: "{{ dotfiles_repo }}"
     force: yes
     accept_hostkey: yes
@@ -38,8 +38,8 @@
 - name: Symlink .gitconfig
   file:
     src: "{{ dotfiles }}/git/.gitconfig"
-    path: "{{ home }}/.gitconfig"
+    path: "{{ user_home }}/.gitconfig"
     state: link
-    owner: "{{ git_user }}"
-    group: "{{ git_user }}"
+    owner: "{{ main_user }}"
+    group: "{{ main_user }}"
     mode: "0644"
