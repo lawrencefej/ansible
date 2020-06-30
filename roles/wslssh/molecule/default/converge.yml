@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include wslssh"
+      include_role:
+        name: "wslssh"
