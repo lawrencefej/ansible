@@ -1,0 +1,14 @@
+---
+# tasks file for lsd
+
+- name: Install Cargo
+  package:
+    state: latest
+    name: cargo
+  update_cache: true
+  become: true
+
+- name: Install Lsd
+  command: cargo install lsd
+  register: test
+  changed_when: "'is already installed' not in test.stderr"
