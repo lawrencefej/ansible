@@ -17,11 +17,20 @@
     group: "{{ main_user }}"
   with_items: "{{ folders }}"
 
-- name: Clone dotfiles
+- name: Clone dotfiles for Redhat
+  git:
+    dest: "{{ user_config }}/.dotfiles"
+    repo: "{{ dotfiles_repo }}"
+    version: centos
+    accept_hostkey: yes
+  when: ansible_facts['os_family'] == "RedHat"
+
+- name: Clone dotfiles for Debian
   git:
     dest: "{{ user_config }}/.dotfiles"
     repo: "{{ dotfiles_repo }}"
     accept_hostkey: yes
+  when: ansible_facts['os_family'] == "Debian"
 
 - name: Check if gitconfig is a link
   stat:
