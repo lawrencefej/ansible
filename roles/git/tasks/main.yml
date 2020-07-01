@@ -21,7 +21,6 @@
   git:
     dest: "{{ user_config }}/.dotfiles"
     repo: "{{ dotfiles_repo }}"
-    force: yes
     accept_hostkey: yes
 
 - name: Check if gitconfig is a link

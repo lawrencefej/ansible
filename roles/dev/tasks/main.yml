@@ -1,0 +1,17 @@
+---
+# tasks file for dev
+
+- name: Change ansible remote to ssh
+  git:
+    dest: "{{ project_dir }}/ansible"
+    repo: git@github.com:lawrencefej/ansible.git
+    accept_hostkey: yes
+
+- name: Create dev dirs
+  file:
+    path: "{{ project_dir }}/{{ item }}"
+    state: directory
+    mode: "0744"
+    owner: "{{ main_user }}"
+    group: "{{ main_user }}"
+  with_items: "{{ dev_dirs }}"

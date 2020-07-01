@@ -1,0 +1,9 @@
+---
+# defaults file for dev
+
+dev_dirs:
+  - angular
+  - ansible
+  - dotnet
+
+project_dir: "{{ user_home }}/projects"
