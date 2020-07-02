@@ -6,13 +6,29 @@
     path: "{{ user_home }}/.ssh/id_rsa"
   register: file
 
-- name: copy ssh
-  copy:
-    src: "/mnt/c/Users/{{ win_user }}/.ssh"
-    dest: "{{ user_home }}"
-    remote_src: yes
-  when: file.stat.exists == false
+- name: create ssh folder
+  file:
+    path: "{{ user_home }}/.ssh"
+    state: directory
+    mode: "0700"
+    owner: "{{ main_user }}"
+    group: "{{ main_user }}"
 
+  # when: file.stat.exists == false
+- name: copy ssh private key
+  copy:
+    src: "/mnt/c/Users/{{ win_user }}/.ssh/id_rsa"
+    dest: "{{ user_home }}/.ssh/id_rsa"
+    remote_src: yes
+
+  # when: file.stat.exists == false
+- name: copy ssh public key
+  copy:
+    src: "/mnt/c/Users/{{ win_user }}/.ssh/id_rsa.pub"
+    dest: "{{ user_home }}/.ssh/id_rsa.pub"
+    remote_src: yes
+
+  # when: file.stat.exists == false
 - name: Set ssh key permission
   file:
     path: "{{ user_home }}/.ssh/id_rsa"
