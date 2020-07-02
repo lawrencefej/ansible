@@ -12,3 +12,4 @@ RedHat_pkgs:
 
 Debian_pkgs:
   - dnsutils
+  - fzf
