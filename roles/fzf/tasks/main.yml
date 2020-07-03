@@ -15,7 +15,7 @@
 
 - name: Remove .fzf.zsh
   file:
-    path: "{{ user_home }}/.fzf"
+    path: "{{ user_home }}/.fzf.zsh"
     state: absent
   when: file.stat.exists == true and file.stat.islnk == false
 
