@@ -21,6 +21,7 @@
     - vim
     - dotnet
     - lsd
+    - fzf
     - update
 
 - name: Setup Server Test
@@ -41,4 +42,5 @@
     - zshplugins
     - vim
     - lsd
+    - fzf
     - update

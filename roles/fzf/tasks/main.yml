@@ -11,7 +11,7 @@
 - name: Check if .fzf is a link
   stat:
     path: "{{ user_home }}/.fzf.zsh"
-    register: file
+  register: file
 
 - name: Remove .fzf.zsh
   file:
