@@ -29,6 +29,7 @@
   git:
     dest: "{{ user_config }}/.dotfiles"
     repo: "{{ dotfiles_repo }}"
+    version: master
     accept_hostkey: yes
   when: ansible_facts['os_family'] == "Debian"
 
