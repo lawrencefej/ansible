@@ -1,0 +1,29 @@
+---
+# tasks file for fzf
+
+- name: Install fzf
+  git:
+    dest: "{{ user_config }}/.fzf"
+    repo: https://github.com/junegunn/fzf.git
+    force: yes
+    depth: "1"
+
+- name: Check if .fzf is a link
+  stat:
+    path: "{{ user_home }}/.fzf.zsh"
+    register: file
+
+- name: Remove .fzf.zsh
+  file:
+    path: "{{ user_home }}/.fzf"
+    state: absent
+  when: file.stat.exists == true and file.stat.islnk == false
+
+- name: Symlink .fzf.zsh
+  file:
+    src: "{{ dotfiles }}/fzf/.fzf.zsh"
+    path: "{{ user_home }}/.fzf.zsh"
+    state: link
+    owner: "{{ main_user }}"
+    group: "{{ main_user }}"
+    mode: "0644"
