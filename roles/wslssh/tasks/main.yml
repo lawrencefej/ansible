@@ -31,3 +31,19 @@
     owner: "{{ main_user }}"
     group: "{{ main_user }}"
     mode: "0644"
+
+- name: Create wsl.conf
+  template:
+    dest: /etc/wsl.conf
+    src: wsl.conf.j2
+    owner: root
+    group: root
+    mode: '644'
+
+- name: Create resolv.conf
+  template:
+    dest: /etc/resolv.conf
+    src: resolv.conf.j2
+    owner: root
+    group: root
+    mode: '644'
