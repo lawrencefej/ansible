@@ -3,34 +3,34 @@
 
 - name: Check if ssh exists
   stat:
-    path: "{{ user_home }}/.ssh/id_rsa"
+    path: '{{ user_home }}/.ssh/id_rsa'
   register: file
 
 - name: create ssh folder
   file:
-    path: "{{ user_home }}/.ssh"
+    path: '{{ user_home }}/.ssh'
     state: directory
-    owner: "{{ main_user }}"
-    group: "{{ main_user }}"
-    mode: "0700"
+    owner: '{{ main_user }}'
+    group: '{{ main_user }}'
+    mode: '0700'
 
 - name: copy ssh private key
   copy:
-    src: "/mnt/c/Users/{{ win_user }}/.ssh/id_rsa"
-    dest: "{{ user_home }}/.ssh/id_rsa"
+    src: '/mnt/c/Users/{{ win_user }}/.ssh/id_rsa'
+    dest: '{{ user_home }}/.ssh/id_rsa'
     remote_src: yes
-    owner: "{{ main_user }}"
-    group: "{{ main_user }}"
-    mode: "600"
+    owner: '{{ main_user }}'
+    group: '{{ main_user }}'
+    mode: '600'
 
 - name: copy ssh public key
   copy:
-    src: "/mnt/c/Users/{{ win_user }}/.ssh/id_rsa.pub"
-    dest: "{{ user_home }}/.ssh/id_rsa.pub"
+    src: '/mnt/c/Users/{{ win_user }}/.ssh/id_rsa.pub'
+    dest: '{{ user_home }}/.ssh/id_rsa.pub'
     remote_src: yes
-    owner: "{{ main_user }}"
-    group: "{{ main_user }}"
-    mode: "0644"
+    owner: '{{ main_user }}'
+    group: '{{ main_user }}'
+    mode: '0644'
 
 - name: Create wsl.conf
   template:
@@ -39,6 +39,7 @@
     owner: root
     group: root
     mode: '644'
+  become: yes
 
 - name: Create resolv.conf
   template:
@@ -47,3 +48,4 @@
     owner: root
     group: root
     mode: '644'
+  become: yes
