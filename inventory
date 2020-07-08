@@ -17,3 +17,6 @@ ubuntu
 
 [servertest]
 192.168.10.159
+
+[servers]
+cxoace
