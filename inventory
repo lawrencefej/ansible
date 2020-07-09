@@ -20,3 +20,14 @@ ubuntu
 
 [servers]
 cxoace
+devutils
+centos8template
+athena
+cockpit
+graylog
+graylogdocker
+loki
+monitoring
+poseidon
+portainer
+dnetworktest
