@@ -19,7 +19,7 @@ ubuntu
 192.168.10.159
 
 [servers]
-cxoace
+xoace
 devutils
 centos8template
 athena
