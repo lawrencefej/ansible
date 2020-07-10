@@ -5,6 +5,7 @@ pkgs:
   - iperf3
   - curl
   - nmap
+  - unzip
 
 RedHat_pkgs:
   - net-tools
