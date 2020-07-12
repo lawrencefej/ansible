@@ -8,7 +8,7 @@
 # Note that the .crt is actually a .pem renamed
 - name: Copy the certificate (Debian, Ubuntu)
   copy:
-    src: '{{ install_root_cert_pem }}'
+    src: '{{ install_root_cert_pem }}.crt'
     dest: '/usr/local/share/ca-certificates/{{ install_root_cert_pem }}.crt'
   register: result
   become: yes

@@ -7,7 +7,7 @@
 
 - name: Copy PEM into folder (Red Hat)
   copy:
-    src: '{{ install_root_cert_pem }}'
+    src: '{{ install_root_cert_pem }}.pem'
     dest: '/etc/pki/ca-trust/source/anchors/{{ install_root_cert_pem }}.pem'
   register: result
   become: yes
