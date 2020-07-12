@@ -24,10 +24,11 @@ vault
 centos8template
 athena
 cockpit
-graylog
 graylogdocker
 loki
-monitoring
 poseidon
 portainer
 dnetworktest
+devenv
+#monitoring
+#graylog
