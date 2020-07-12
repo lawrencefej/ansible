@@ -20,7 +20,7 @@ ubuntu
 
 [servers]
 xoace
-devutils
+vault
 centos8template
 athena
 cockpit

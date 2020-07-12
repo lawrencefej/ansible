@@ -2,16 +2,21 @@
 # tasks file for certs
 
 - name: Check that the root certificate .crt exists
-  become: no
-  local_action: 'stat path={{ cert_path }}/{{ cert_crt }}'
+  local_action: "stat path={{ cert_path }}/{{ cert_crt }}"
   register: result
   failed_when: not result.stat.exists
+  when: ansible_os_family == "Debian"
+
+- name: print
+  debug:
+    var: result
 
 - name: Check that the root certificate .pem exists
   become: no
   local_action: 'stat path={{ cert_path }}/{{ cert_pem }}'
   register: result
   failed_when: not result.stat.exists
+  when: ansible_os_family == "Debian"
 
 - include: debian.yml
   when: ansible_os_family == "Debian"
