@@ -3,7 +3,7 @@
 
 - name: Check that the root certificate exists
   become: no
-  local_action: 'stat path={{ install_root_cert_pem }}'
+  local_action: 'stat path={{ install_root_cert_pem }}.pem'
   register: result
   failed_when: not result.stat.exists
 
