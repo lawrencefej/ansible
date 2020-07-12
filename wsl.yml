@@ -5,9 +5,9 @@
   vars:
     main_user: lawrence
     win_user: Lawrence
-    user_home: "/home/{{ main_user }}"
-    user_config: "{{ user_home }}/.config"
-    user_cache: "{{ user_home }}/.cache"
+    user_home: '/home/{{ main_user }}'
+    user_config: '{{ user_home }}/.config'
+    user_cache: '{{ user_home }}/.cache'
 
   roles:
     - setup
@@ -27,4 +27,5 @@
     - lsd
     - dev
     - fzf
+    - certs
     - update

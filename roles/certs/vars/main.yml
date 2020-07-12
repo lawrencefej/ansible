@@ -1,0 +1,4 @@
+---
+# vars file for certs
+
+install_root_cert_pem: '/mnt/c/Users/{{ win_user }}/Documents/certs/ca'
