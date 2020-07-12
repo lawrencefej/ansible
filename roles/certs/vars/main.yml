@@ -1,4 +1,6 @@
 ---
 # vars file for certs
 
-install_root_cert_pem: '/mnt/c/Users/{{ win_user }}/Documents/certs/ca/lawrencefej-ca'
+cert_path: '/mnt/c/Users/{{ win_user }}/Documents/certs/ca'
+cert_pem: lawrencefej-ca.pem
+cert_crt: lawrencefej-ca.crt

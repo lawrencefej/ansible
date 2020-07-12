@@ -1,9 +1,15 @@
 ---
 # tasks file for certs
 
-- name: Check that the root certificate exists
+- name: Check that the root certificate .crt exists
   become: no
-  local_action: 'stat path={{ install_root_cert_pem }}.pem'
+  local_action: 'stat path={{ cert_path }}/{{ cert_crt }}'
+  register: result
+  failed_when: not result.stat.exists
+
+- name: Check that the root certificate .pem exists
+  become: no
+  local_action: 'stat path={{ cert_path }}/{{ cert_pem }}'
   register: result
   failed_when: not result.stat.exists
 
