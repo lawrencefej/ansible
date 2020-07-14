@@ -6,9 +6,9 @@ pkgs:
   - curl
   - nmap
   - unzip
+  - net-tools
 
 RedHat_pkgs:
-  - net-tools
   - bind-utils
 
 Debian_pkgs:
