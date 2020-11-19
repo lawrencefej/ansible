@@ -9,6 +9,6 @@
   become: true
 
 - name: Install Lsd
-  command: cargo install lsd
+  command: cargo install lsd --version 0.17.0
   register: test
   changed_when: "'is already installed' not in test.stderr"
