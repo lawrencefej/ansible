@@ -7,6 +7,7 @@ pkgs:
   - nmap
   - unzip
   - net-tools
+  - htop
 
 RedHat_pkgs:
   - bind-utils
