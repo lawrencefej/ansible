@@ -11,7 +11,9 @@ pkgs:
 
 RedHat_pkgs:
   - bind-utils
+  - nfs-utils
 
 Debian_pkgs:
   - dnsutils
   - fzf
+  - nfs-common
