@@ -3,6 +3,7 @@
 
 dotfiles: "{{ user_config }}/.dotfiles"
 dotfiles_repo: https://github.com/lawrencefej/.dotfiles.git
+gitbranch: master
 
 folders:
   - "{{ user_config }}"
