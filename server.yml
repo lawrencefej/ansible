@@ -8,12 +8,28 @@
     user_config: '{{ user_home }}/.config'
     user_cache: '{{ user_home }}/.cache'
 
+  tasks:
+  - name: Install Guest Agent
+    package:
+        state: present
+        name: qemu-guest-agent
+    become: yes
+
+  - name: Enable guest Agent
+    systemd:
+        name: qemu-guest-agent
+        enabled: yes
+        state: started
+    become: yes
+
   roles:
     - setup
     - common
     - users
     - users
-    - git
+    - role: git
+      vars:
+        gitbranch: server
     - zsh
     - zshplugins
     - vim
