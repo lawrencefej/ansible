@@ -1,0 +1,16 @@
+---
+# tasks file for time
+
+- name: Set NTP Server
+  lineinfile:
+      path: /etc/systemd/timesyncd.conf
+      state: present
+      regexp: "^NTP=pfsense.home.lan"
+      line: NTP=pfsense.home.lan
+  become: yes
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Set Timezone to UTC
+  timezone:
+      name: UTC
+  become: yes
