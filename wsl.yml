@@ -27,5 +27,5 @@
     - lsd
     - dev
     - fzf
-    - certs
+    # - certs
     - update
