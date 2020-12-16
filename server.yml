@@ -8,12 +8,6 @@
     user_config: '{{ user_home }}/.config'
     user_cache: '{{ user_home }}/.cache'
 
-  tasks:
-  - name: Set Timezone to UTC
-    timezone:
-      name: UTC
-    become: yes
-
   roles:
     - setup
     - common
@@ -23,6 +17,7 @@
     - zsh
     - zshplugins
     - vim
+    - time
     - lsd
     - fzf
     - certs
