@@ -15,7 +15,7 @@
         name: qemu-guest-agent
     become: yes
 
-  - name: Enable guest Agent
+  - name: Enable Guest Agent
     systemd:
         name: qemu-guest-agent
         enabled: yes
@@ -38,3 +38,6 @@
     - fzf
     # - certs
     - update
+
+- name: Configure Log Clients
+  import_playbook: log.yaml

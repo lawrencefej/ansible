@@ -8,6 +8,7 @@ pkgs:
   - unzip
   - net-tools
   - htop
+  - rsyslog
 
 RedHat_pkgs:
   - bind-utils
