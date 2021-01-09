@@ -24,6 +24,6 @@
     src: "{{ dotfiles }}/vim/.vimrc"
     path: "{{ user_home }}/.vimrc"
     state: link
-    owner: "{{ main_user }}"
-    group: "{{ main_user }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
     mode: "0644"

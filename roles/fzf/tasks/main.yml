@@ -24,6 +24,6 @@
     src: "{{ dotfiles }}/fzf/.fzf.zsh"
     path: "{{ user_home }}/.fzf.zsh"
     state: link
-    owner: "{{ main_user }}"
-    group: "{{ main_user }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
     mode: "0644"

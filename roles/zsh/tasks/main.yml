@@ -9,7 +9,7 @@
 
 - name: Set zsh as default shell
   user:
-    name: "{{ main_user }}"
+    name: "{{ ansible_user }}"
     shell: /bin/zsh
     state: present
 
@@ -24,7 +24,7 @@
     repo: https://github.com/robbyrussell/oh-my-zsh.git
     depth: "1"
   become: yes
-  become_user: "{{ main_user }}"
+  become_user: "{{ ansible_user }}"
   when: not oh_my_zsh.stat.exists
 
 - name: Symlink .zshrc
@@ -32,6 +32,6 @@
     src: "{{ user_config }}/.dotfiles/zsh/.zshrc"
     path: "{{ user_home }}/.zshrc"
     state: link
-    owner: "{{ main_user }}"
-    group: "{{ main_user }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
     mode: "0644"

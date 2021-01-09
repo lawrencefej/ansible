@@ -6,8 +6,8 @@
     path: "{{ project_dir }}/{{ item }}"
     state: directory
     mode: "0744"
-    owner: "{{ main_user }}"
-    group: "{{ main_user }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
   with_items: "{{ dev_dirs }}"
 
 - name: Change ansible remote to ssh

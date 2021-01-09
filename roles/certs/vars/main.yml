@@ -1,6 +1,6 @@
 ---
 # vars file for certs
 
-cert_path: '/mnt/c/Users/{{ win_user }}/Documents/certs/ca'
+cert_path: '/mnt/c/Users/{{ ansible_user }}/Documents/certs/ca'
 cert_pem: lawrencefej-ca.pem
 cert_crt: lawrencefej-ca.crt

@@ -13,8 +13,8 @@
     path: "{{ item }}"
     state: directory
     mode: "0744"
-    owner: "{{ main_user }}"
-    group: "{{ main_user }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
   with_items: "{{ folders }}"
 
 - name: Clone dotfiles for Redhat
@@ -49,6 +49,6 @@
     src: "{{ dotfiles }}/git/.gitconfig"
     path: "{{ user_home }}/.gitconfig"
     state: link
-    owner: "{{ main_user }}"
-    group: "{{ main_user }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
     mode: "0644"

@@ -13,8 +13,8 @@
     src: "{{ dotfiles }}/zsh/.p10k.zsh"
     path: "{{ user_home }}/.p10k.zsh"
     state: link
-    owner: "{{ main_user }}"
-    group: "{{ main_user }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
     mode: "0644"
 
 - name: Install oh-my-zsh plugins
