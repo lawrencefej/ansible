@@ -10,8 +10,8 @@
     group: "{{ ansible_user }}"
   with_items: "{{ dev_dirs }}"
 
-- name: Change ansible remote to ssh
-  git:
-    dest: "{{ project_dir }}/homelab/ansible"
-    repo: git@github.com:lawrencefej/ansible.git
-    accept_hostkey: yes
+# - name: Change ansible remote to ssh
+#   git:
+#     dest: "{{ project_dir }}/homelab/ansible"
+#     repo: git@github.com:lawrencefej/ansible.git
+#     accept_hostkey: yes
