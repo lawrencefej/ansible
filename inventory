@@ -1,3 +1,9 @@
+[all:vars]
+ansible_user='lawrence'
+#ansible_become=yes
+#ansible_become_method=sudo
+#ansible_python_interpreter='/usr/bin/env python3'
+
 [wsl]
 localhost
 
@@ -16,7 +22,7 @@ ubuntu
 192.168.10.166
 
 [servertest]
-test1.home.lan
+test.home.lan
 
 [servers]
 #xoace
@@ -27,16 +33,21 @@ test1.home.lan
 #loki
 #poseidon.home.lan
 athena.home.lan
-dev1.home.lan
-dev2.home.lan
-dev3.home.lan
-int1.home.lan
-int2.home.lan
-int3.home.lan
-staging1.home.lan
-staging2.home.lan
-staging3.home.lan
+#dev1.home.lan
+#dev2.home.lan
+#dev3.home.lan
+#int1.home.lan
+#int2.home.lan
+#int3.home.lan
+#staging1.home.lan
+#staging2.home.lan
+#staging3.home.lan
 thoth.home.lan
+k3stest.home.lan
+k3sdev.home.lan
+k3sint.home.lan
+k3sstag.home.lan
+lxctest.home.lan
 #portainer
 #dnetworktest
 #devenv
@@ -46,12 +57,35 @@ thoth.home.lan
 
 [logclients]
 athena.home.lan
-dev1.home.lan
-dev2.home.lan
-dev3.home.lan
-int1.home.lan
-int2.home.lan
-int3.home.lan
-staging1.home.lan
-staging2.home.lan
-staging3.home.lan
+#dev1.home.lan
+#dev2.home.lan
+#dev3.home.lan
+#int1.home.lan
+#int2.home.lan
+#int3.home.lan
+#staging1.home.lan
+#staging2.home.lan
+#staging3.home.lan
+thoth.home.lan
+k3stest.home.lan
+k3sdev.home.lan
+k3sint.home.lan
+k3sstag.home.lan
+
+[vms]
+athena.home.lan
+#dev1.home.lan
+#dev2.home.lan
+#dev3.home.lan
+#int1.home.lan
+#int2.home.lan
+#int3.home.lan
+#staging1.home.lan
+#staging2.home.lan
+#staging3.home.lan
+#thoth.home.lan
+#lxctest.home.lan
+k3stest.home.lan
+k3sdev.home.lan
+k3sint.home.lan
+k3sstag.home.lan

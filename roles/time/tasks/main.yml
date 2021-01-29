@@ -12,5 +12,6 @@
 
 - name: Set Timezone to UTC
   timezone:
-      name: UTC
+      name: America/New_York
   become: yes
+#TODO Reset timesysncd  when it's changed

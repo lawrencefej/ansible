@@ -1,8 +1,22 @@
 ---
 # tasks file for update
 
-- name: Update packages
-  package:
-    name: "*"
-    state: latest
+# - name: Update packages
+#   package:
+#     name: "*"
+#     state: latest
+#   become: yes
+
+- name: Update apt repo and cache on all Debian based
+  apt:
+    update_cache: yes
+    force_apt_get: yes
+    cache_valid_time: 3600
+  become: yes
+  when: ansible_os_family == 'Debian'
+
+- name: Upgrade all packages on servers
+  apt:
+    upgrade: dist
+    force_apt_get: yes
   become: yes

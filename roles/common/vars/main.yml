@@ -18,3 +18,4 @@ Debian_pkgs:
   - dnsutils
   - fzf
   - nfs-common
+  - bat
