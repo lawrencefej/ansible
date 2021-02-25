@@ -18,4 +18,5 @@ Debian_pkgs:
   - dnsutils
   - fzf
   - nfs-common
-  - bat
+  - xz-utils
+  # - bat

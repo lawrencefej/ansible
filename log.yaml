@@ -1,5 +1,5 @@
 ---
-- name: Setup Server
+- name: Setup Log Server
   hosts: logclients
   vars:
     user_home: '/home/{{ ansible_user }}'
@@ -7,27 +7,61 @@
     user_cache: '{{ user_home }}/.cache'
 
   tasks:
-  - name: Install Rsyslog
-    package:
+    - name: Install Rsyslog
+      package:
         state: present
         name: rsyslog
-    become: yes
+      become: yes
 
-  - name: Copy rsyslog client config file
-    copy:
+    - name: Copy rsyslog client config file
+      copy:
         dest: /etc/rsyslog.d/25-client.conf
         src: 25-client.conf
         group: root
         mode: '0644'
         owner: root
-    register: result
-    become: yes
+      register: result
+      become: yes
 
-  - name: Restart Rsyslog service
-    systemd:
+    - name: Restart Rsyslog service
+      systemd:
         name: rsyslog
         enabled: yes
         daemon_reload: yes
         state: restarted
-    when: result.changed
-    become: yes
+      when: result.changed
+      become: yes
+
+---
+- name: Setup Log Clients
+  hosts: logclients
+  vars:
+    user_home: '/home/{{ ansible_user }}'
+    user_config: '{{ user_home }}/.config'
+    user_cache: '{{ user_home }}/.cache'
+
+  tasks:
+    - name: Install Rsyslog
+      package:
+        state: present
+        name: rsyslog
+      become: yes
+
+    - name: Copy rsyslog client config file
+      copy:
+        dest: /etc/rsyslog.d/25-client.conf
+        src: 25-client.conf
+        group: root
+        mode: '0644'
+        owner: root
+      register: result
+      become: yes
+
+    - name: Restart Rsyslog service
+      systemd:
+        name: rsyslog
+        enabled: yes
+        daemon_reload: yes
+        state: restarted
+      when: result.changed
+      become: yes

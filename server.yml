@@ -6,7 +6,6 @@
     user_config: '{{ user_home }}/.config'
     user_cache: '{{ user_home }}/.cache'
 
-
   roles:
     - setup
     - common
@@ -25,37 +24,35 @@
     - update
 
   tasks:
-  - name: Install Guest Agent
-    package:
+    - name: Install Guest Agent
+      package:
         state: present
         name: qemu-guest-agent
-    become: yes
+      become: yes
 
-  - name: Enable Guest Agent
-    systemd:
+    - name: Enable Guest Agent
+      systemd:
         name: qemu-guest-agent
         enabled: yes
         state: started
-    become: yes
+      become: yes
 
-  - name: Check if a reboot is needed on all servers
-    register: reboot_required_file
-    stat:
-      path: /var/run/reboot-required
-      get_md5: no
-    become: yes
+    - name: Check if a reboot is needed on all servers
+      register: reboot_required_file
+      stat:
+        path: /var/run/reboot-required
+        get_md5: no
+      become: yes
 
-  - name: Reboot Server
-    reboot:
-      msg: "Reboot initiated by Ansible for kernel updates"
-      connect_timeout: 5
-      reboot_timeout: 300
-      pre_reboot_delay: 0
-      # post_reboot_delay: 30
-      test_command: uptime
-    when: reboot_required_file.stat.exists
-    become: yes
-
-
-- name: Configure Log Clients
-  import_playbook: log.yaml
+    - name: Reboot Server
+      reboot:
+        msg: 'Reboot initiated by Ansible for kernel updates'
+        connect_timeout: 5
+        reboot_timeout: 300
+        pre_reboot_delay: 0
+        # post_reboot_delay: 30
+        test_command: uptime
+      when: reboot_required_file.stat.exists
+      become: yes
+# - name: Configure Log Clients
+#   import_playbook: log.yaml

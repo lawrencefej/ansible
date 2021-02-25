@@ -1,10 +1,21 @@
 ---
-- name: Download .deb package
+- name: Download LSD .deb package
   get_url:
-      dest: "{{ user_home}}/.cache/lsd.deb"
-      url: https://github.com/Peltoche/lsd/releases/download/0.19.0/lsd_0.19.0_amd64.deb
+    dest: '{{ user_home}}/.cache/lsd.deb'
+    url: https://github.com/Peltoche/lsd/releases/download/0.19.0/lsd_0.19.0_amd64.deb
 
-- name: Install a .deb package
+- name: Install LSD .deb package
   apt:
-    deb: "{{ user_home}}/.cache/lsd.deb"
+    deb: '{{ user_home}}/.cache/lsd.deb'
   become: yes
+
+- name: Download BAT .deb package
+  get_url:
+    dest: '{{ user_home}}/.cache/bat.deb'
+    url: https://github.com/sharkdp/bat/releases/download/v0.17.1/bat_0.17.1_amd64.deb
+
+- name: Install BAT .deb package
+  apt:
+    deb: '{{ user_home}}/.cache/bat.deb'
+  become: yes
+  # TODO Make this common for .deb packages
