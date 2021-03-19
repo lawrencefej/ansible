@@ -9,6 +9,7 @@ pkgs:
   - net-tools
   - htop
   - rsyslog
+  - sudo
 
 RedHat_pkgs:
   - bind-utils

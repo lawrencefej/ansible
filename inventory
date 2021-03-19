@@ -6,6 +6,7 @@ ansible_user='lawrence'
 
 [wsl]
 localhost
+#remotedev.home.lan
 
 [wsltest]
 192.168.10.166

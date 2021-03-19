@@ -1,6 +1,7 @@
 ---
 - name: Setup WSL
   hosts: wsl
+  # comment out for remotedev
   connection: local
   vars:
     user_home: '/home/{{ ansible_user }}'
@@ -12,6 +13,7 @@
     - common
     - users
     - users
+    # comment out for remotedev
     - wslssh
     - role: git
       vars:

@@ -37,12 +37,12 @@
     #     state: started
     #   become: yes
 
-    # - name: Check if a reboot is needed on all servers
-    #   register: reboot_required_file
-    #   stat:
-    #     path: /var/run/reboot-required
-    #     get_md5: no
-    #   become: yes
+    - name: Check if a reboot is needed on all servers
+      register: reboot_required_file
+      stat:
+        path: /var/run/reboot-required
+        get_md5: no
+      become: yes
 
     - name: Reboot Server
       reboot:
