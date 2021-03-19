@@ -19,4 +19,5 @@ Debian_pkgs:
   - fzf
   - nfs-common
   - xz-utils
+  - software-properties-common
   # - bat

@@ -32,18 +32,19 @@ test.home.lan
 #graylogdocker
 #loki
 #poseidon.home.lan
-athena.home.lan
+#athena.home.lan
 #staging1.home.lan
 #staging2.home.lan
 #staging3.home.lan
-thoth.home.lan
-k3stest.home.lan
-k3sdevmaster.home.lan
-k3sdevagent1.home.lan
-k3sdevagent2.home.lan
-k3sdevagent3.home.lan
+#thoth.home.lan
+#k3stest.home.lan
+#k3sdevmaster.home.lan
+#k3sdevagent1.home.lan
+#k3sdevagent2.home.lan
+#k3sdevagent3.home.lan
 #lxctest.home.lan
 debiantest.home.lan
+kestest.home.lan
 
 
 
