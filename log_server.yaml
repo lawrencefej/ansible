@@ -37,37 +37,3 @@
       get_url:
         url: https://github.com/grafana/loki/releases/download/{{ promtail_version }}/promtail-linux-amd64.zip
         dest: /tmp/promtail-linux-amd64{{ promtail_version }}.zip
-
----
-- name: Setup Log Clients
-  hosts: logclients
-  vars:
-    user_home: '/home/{{ ansible_user }}'
-    user_config: '{{ user_home }}/.config'
-    user_cache: '{{ user_home }}/.cache'
-
-  tasks:
-    - name: Install Rsyslog
-      ansible.builtin.package:
-        state: present
-        name: rsyslog
-      become: yes
-
-    - name: Copy rsyslog client config file
-      ansible.builtin.copy:
-        dest: /etc/rsyslog.d/25-client.conf
-        src: 25-client.conf
-        group: root
-        mode: '0644'
-        owner: root
-      register: result
-      become: yes
-
-    - name: Restart Rsyslog service
-      ansible.builtin.systemd:
-        name: rsyslog
-        enabled: yes
-        daemon_reload: yes
-        state: restarted
-      when: result.changed
-      become: yes
