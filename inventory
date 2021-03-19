@@ -44,6 +44,7 @@ k3sdevagent2.home.lan
 k3sdevagent3.home.lan
 #lxctest.home.lan
 debiantest.home.lan
+apollo.home.lan
 
 
 
@@ -64,6 +65,9 @@ k3sdev.home.lan
 k3sint.home.lan
 k3sstag.home.lan
 
+[logservers]
+lxcdebian.home.lan
+
 [vms]
 athena.home.lan
 #dev1.home.lan
@@ -78,3 +82,4 @@ athena.home.lan
 #thoth.home.lan
 #lxctest.home.lan
 
+[new]
