@@ -7,17 +7,6 @@ ansible_user='lawrence'
 [wsl]
 localhost
 
-[fleet:children]
-centos
-ubuntu
-
-[centos]
-192.168.10.181
-
-
-[ubuntu]
-192.168.10.160
-
 [wsltest]
 192.168.10.166
 
@@ -32,24 +21,14 @@ test.home.lan
 #graylogdocker
 #loki
 #poseidon.home.lan
-athena.home.lan
-#staging1.home.lan
-#staging2.home.lan
-#staging3.home.lan
-thoth.home.lan
-k3stest.home.lan
-k3sdevmaster.home.lan
-k3sdevagent1.home.lan
-k3sdevagent2.home.lan
-k3sdevagent3.home.lan
-#lxctest.home.lan
-debiantest.home.lan
+#athena.home.lan
 apollo.home.lan
+k3stest.home.lan
 
 
 
 [logclients]
-athena.home.lan
+#athena.home.lan
 #dev1.home.lan
 #dev2.home.lan
 #dev3.home.lan
@@ -59,14 +38,15 @@ athena.home.lan
 #staging1.home.lan
 #staging2.home.lan
 #staging3.home.lan
-thoth.home.lan
-k3stest.home.lan
-k3sdev.home.lan
-k3sint.home.lan
-k3sstag.home.lan
+#thoth.home.lan
+#k3stest.home.lan
+#k3sdev.home.lan
+#k3sint.home.lan
+#k3sstag.home.lan
+kestest.home.lan
 
 [logservers]
-lxcdebian.home.lan
+#lxcdebian.home.lan
 
 [vms]
 athena.home.lan

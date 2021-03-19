@@ -20,4 +20,9 @@ Debian_pkgs:
   - nfs-common
   - xz-utils
   - python3-apt
+  - apt-transport-https
+  - ca-certificates
+  - gnupg
+  - lsb-release
+  - python3-pip
   # - bat
