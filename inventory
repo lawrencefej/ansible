@@ -5,8 +5,9 @@ ansible_user='lawrence'
 #ansible_python_interpreter='/usr/bin/env python3'
 
 [wsl]
-localhost
+#localhost
 #remotedev.home.lan
+hermes.home.lan
 
 [wsltest]
 192.168.10.166
@@ -25,6 +26,7 @@ test.home.lan
 #athena.home.lan
 apollo.home.lan
 k3stest.home.lan
+thoth.home.lan
 
 
 
@@ -63,4 +65,7 @@ athena.home.lan
 #thoth.home.lan
 #lxctest.home.lan
 
-[new]
+[docker]
+#hermes.home.lan
+apollo.home.lan
+thoth.home.lan

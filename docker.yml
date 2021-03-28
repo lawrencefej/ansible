@@ -1,0 +1,10 @@
+---
+- name: Setup WSL
+  hosts: docker
+  vars:
+    user_home: '/home/{{ ansible_user }}'
+    user_config: '{{ user_home }}/.config'
+    user_cache: '{{ user_home }}/.cache'
+
+  roles:
+    - docker

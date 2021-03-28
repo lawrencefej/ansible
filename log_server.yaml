@@ -16,7 +16,7 @@
 
     - name: Copy rsyslog.conf to server
       ansible.builtin.copy:
-        dest: /etc/rsyslog..conf
+        dest: /etc/rsyslog.conf
         src: rsyslog.conf
         group: root
         mode: '0644'

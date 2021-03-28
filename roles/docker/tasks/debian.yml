@@ -1,0 +1,14 @@
+---
+# tasks file for docker
+
+- name: Add Docker Debian GPG apt Key
+  apt_key:
+    url: https://download.docker.com/linux/debian/gpg
+    state: present
+  become: yes
+
+- name: Add Docker Debian Repository
+  apt_repository:
+    repo: deb https://download.docker.com/linux/debian buster stable
+    state: present
+  become: yes

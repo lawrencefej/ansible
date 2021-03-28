@@ -10,7 +10,7 @@
 - name: Install RedHat specific packages
   yum:
     state: present
-    name: "{{ RedHat_pkgs }}"
+    name: '{{ RedHat_pkgs }}'
     update_cache: true
   become: true
   when: ansible_facts['os_family'] == "RedHat"
@@ -18,7 +18,7 @@
 - name: Install Debian specific packages
   package:
     state: present
-    name: "{{ Debian_pkgs }}"
+    name: '{{ Debian_pkgs }}'
     update_cache: true
   become: true
   when: ansible_facts['os_family'] == "Debian"
@@ -26,6 +26,6 @@
 - name: Install common packages
   package:
     state: present
-    name: "{{ pkgs }}"
+    name: '{{ pkgs }}'
     update_cache: true
   become: true
