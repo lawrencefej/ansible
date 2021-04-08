@@ -7,8 +7,9 @@
     name: python3-pip
     update_cache: true
   become: true
+  when: ansible_os_family == 'Debian' or ansible_os_family == 'Redhat'
 
 - name: Install python packages
   pip:
-    name: "{{ python_packages }}"
+    name: '{{ python_packages }}'
     state: latest

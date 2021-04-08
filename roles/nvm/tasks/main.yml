@@ -1,10 +1,10 @@
 # ---
 # # tasks file for nvm
 
-- name: Install node from apt
+- name: Install node from package manager
   package:
     state: latest
-    name: "{{ nvm_packages }}"
+    name: '{{ nvm_packages }}'
     update_cache: yes
   become: yes
 
@@ -18,7 +18,7 @@
 
 - name: Install zsh-nvm
   git:
-    dest: "{{ user_home }}/.oh-my-zsh/custom/plugins/zsh-nvm"
+    dest: '{{ user_home }}/.oh-my-zsh/custom/plugins/zsh-nvm'
     repo: https://github.com/lukechilds/zsh-nvm
     force: yes
-    depth: "1"
+    depth: '1'

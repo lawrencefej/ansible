@@ -10,7 +10,6 @@
     - setup
     - common
     - users
-    - users
     - role: git
       vars:
         gitbranch: server

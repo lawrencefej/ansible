@@ -9,6 +9,9 @@ ansible_user='lawrence'
 #remotedev.home.lan
 hermes.home.lan
 
+[localhost]
+localhost
+
 [wsltest]
 192.168.10.166
 
@@ -23,10 +26,12 @@ test.home.lan
 #graylogdocker
 #loki
 #poseidon.home.lan
-#athena.home.lan
+athena.home.lan
 apollo.home.lan
 k3stest.home.lan
 thoth.home.lan
+k3s1.home.lan
+k3s2.home.lan
 
 
 
@@ -46,7 +51,9 @@ thoth.home.lan
 #k3sdev.home.lan
 #k3sint.home.lan
 #k3sstag.home.lan
-kestest.home.lan
+k3stest.home.lan
+k3s1.home.lan
+k3s2.home.lan
 
 [logservers]
 #lxcdebian.home.lan

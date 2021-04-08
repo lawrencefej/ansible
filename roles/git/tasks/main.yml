@@ -10,45 +10,45 @@
 
 - name: Create config folder
   file:
-    path: "{{ item }}"
+    path: '{{ item }}'
     state: directory
-    mode: "0744"
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
-  with_items: "{{ folders }}"
+    mode: '0744'
+    owner: '{{ ansible_user }}'
+    group: '{{ ansible_user }}'
+  with_items: '{{ folders }}'
 
 - name: Clone dotfiles for Redhat
   git:
-    dest: "{{ user_config }}/.dotfiles"
-    repo: "{{ dotfiles_repo }}"
+    dest: '{{ user_config }}/.dotfiles'
+    repo: '{{ dotfiles_repo }}'
     version: centos
     accept_hostkey: yes
-  when: ansible_facts['os_family'] == "RedHat"
+  when: ansible_os_family == 'RedHat'
 
 - name: Clone dotfiles for Debian
   git:
-    dest: "{{ user_config }}/.dotfiles"
-    repo: "{{ dotfiles_repo }}"
-    version: "{{ gitbranch }}"
+    dest: '{{ user_config }}/.dotfiles'
+    repo: '{{ dotfiles_repo }}'
+    version: '{{ gitbranch }}'
     accept_hostkey: yes
-  when: ansible_facts['os_family'] == "Debian"
+  when: ansible_os_family == "Debian" or ansible_os_family == 'ArchLinux'
 
 - name: Check if gitconfig is a link
   stat:
-    path: "{{ user_home }}/.gitconfig"
+    path: '{{ user_home }}/.gitconfig'
   register: file
 
 - name: Remove gitconfig
   file:
-    path: "{{ user_home }}/.gitconfig"
+    path: '{{ user_home }}/.gitconfig'
     state: absent
   when: file.stat.exists == true and file.stat.islnk == false
 
 - name: Symlink .gitconfig
   file:
-    src: "{{ dotfiles }}/git/.gitconfig"
-    path: "{{ user_home }}/.gitconfig"
+    src: '{{ dotfiles }}/git/.gitconfig'
+    path: '{{ user_home }}/.gitconfig'
     state: link
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
-    mode: "0644"
+    owner: '{{ ansible_user }}'
+    group: '{{ ansible_user }}'
+    mode: '0644'

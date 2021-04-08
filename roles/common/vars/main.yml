@@ -28,3 +28,19 @@ Debian_pkgs:
   - lsb-release
   - python3-pip
   # - bat
+
+Arch_pkgs:
+  - iperf3
+  - nmap
+  - net-tools
+  - docker
+  - docker-compose
+  - brave
+  - alacritty
+  - vim
+  - ansible
+  - bitwarden
+  - python-apt
+  - bat
+  - lsd
+  - fzf

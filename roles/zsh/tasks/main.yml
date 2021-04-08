@@ -6,32 +6,40 @@
   package:
     name: zsh
     state: latest
+    when: ansible_os_family == 'Debian' or ansible_os_family == 'Redhat'
+
+- name: Arch Install zsh
+  become: yes
+  community.general.pacman:
+    name: zsh
+    state: latest
+    when: ansible_os_family == 'ArchLinux'
 
 - name: Set zsh as default shell
   user:
-    name: "{{ ansible_user }}"
+    name: '{{ ansible_user }}'
     shell: /bin/zsh
     state: present
 
 - name: Check for oh-my-zsh installation
   stat:
-    path: "{{ user_home }}/.oh-my-zsh"
+    path: '{{ user_home }}/.oh-my-zsh'
   register: oh_my_zsh
 
 - name: Clone oh_my_zsh
   git:
-    dest: "{{ user_home }}/.oh-my-zsh"
+    dest: '{{ user_home }}/.oh-my-zsh'
     repo: https://github.com/robbyrussell/oh-my-zsh.git
-    depth: "1"
+    depth: '1'
   become: yes
-  become_user: "{{ ansible_user }}"
+  become_user: '{{ ansible_user }}'
   when: not oh_my_zsh.stat.exists
 
 - name: Symlink .zshrc
   file:
-    src: "{{ user_config }}/.dotfiles/zsh/.zshrc"
-    path: "{{ user_home }}/.zshrc"
+    src: '{{ user_config }}/.dotfiles/zsh/.zshrc'
+    path: '{{ user_home }}/.zshrc'
     state: link
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
-    mode: "0644"
+    owner: '{{ ansible_user }}'
+    group: '{{ ansible_user }}'
+    mode: '0644'

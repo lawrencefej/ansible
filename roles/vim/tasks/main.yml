@@ -7,23 +7,24 @@
     name: vim
     update_cache: true
   become: true
+  when: ansible_os_family == 'Debian' or ansible_os_family == 'Redhat'
 
 - name: Check if .vimrc is a link
   stat:
-    path: "{{ user_home }}/.vimrc"
+    path: '{{ user_home }}/.vimrc'
   register: file
 
 - name: Remove .vimrc
   file:
-    path: "{{ user_home }}/.vimrc"
+    path: '{{ user_home }}/.vimrc'
     state: absent
   when: file.stat.exists == true and file.stat.islnk == false
 
 - name: Symlink .vimrc
   file:
-    src: "{{ dotfiles }}/vim/.vimrc"
-    path: "{{ user_home }}/.vimrc"
+    src: '{{ dotfiles }}/vim/.vimrc'
+    path: '{{ user_home }}/.vimrc'
     state: link
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
-    mode: "0644"
+    owner: '{{ ansible_user }}'
+    group: '{{ ansible_user }}'
+    mode: '0644'
