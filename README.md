@@ -9,4 +9,4 @@
 2. Install Kustomize
 
 ## List Facts
-    ansible hostname -m ansible.builtin.setup
+    ansible localhost -m ansible.builtin.setup

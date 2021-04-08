@@ -31,7 +31,7 @@
     repo: '{{ dotfiles_repo }}'
     version: '{{ gitbranch }}'
     accept_hostkey: yes
-  when: ansible_os_family == "Debian" or ansible_os_family == 'ArchLinux'
+  when: ansible_os_family == "Debian" or ansible_os_family == 'Archlinux'
 
 - name: Check if gitconfig is a link
   stat:

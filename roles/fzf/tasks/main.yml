@@ -7,7 +7,6 @@
     repo: https://github.com/junegunn/fzf.git
     force: yes
     depth: '1'
-  when: ansible_os_family == 'Debian' or ansible_os_family == 'Redhat'
 
 - name: Check if .fzf is a link
   stat:

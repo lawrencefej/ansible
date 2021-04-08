@@ -32,9 +32,9 @@
   when: ansible_os_family == 'Debian' or ansible_os_family == 'Redhat'
 
 - name: Install Arch packages
-  package:
+  community.general.pacman:
     state: present
     name: '{{ Arch_pkgs }}'
     update_cache: true
   become: true
-  when: ansible_os_family == 'Debian' or ansible_os_family == 'Redhat'
+  when: ansible_os_family == 'Archlinux'

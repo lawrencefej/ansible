@@ -1,22 +1,12 @@
 ---
-- name: Setup Server
+- name: Setup Manjaro
   hosts: localhost
   connection: local
   vars:
     user_home: '/home/{{ ansible_user }}'
     user_config: '{{ user_home }}/.config'
     user_cache: '{{ user_home }}/.cache'
-    pkgs:
-      - iperf3
 
-  tasks:
-    - name: Install Arch Packages
-      community.general.pacman:
-        name: '{{ pkgs }}'
-        state: present
-        update_cache: true
-      become: yes
-      when: ansible_os_family == 'ArchLinux'
   roles:
     - common
     - role: git
@@ -31,10 +21,3 @@
     - dev
     - fzf
     # # - certs
-
-    - name: Install zsh-nvm
-      git:
-        dest: '{{ user_home }}/.oh-my-zsh/custom/plugins/zsh-nvm'
-        repo: https://github.com/lukechilds/zsh-nvm
-        force: yes
-        depth: '1'

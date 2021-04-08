@@ -40,7 +40,6 @@ Arch_pkgs:
   - vim
   - ansible
   - bitwarden
-  - python-apt
+  - python-pip
   - bat
   - lsd
-  - fzf

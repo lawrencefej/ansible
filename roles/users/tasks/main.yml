@@ -6,6 +6,7 @@
     shell: /bin/zsh
     state: present
   become: yes
+  when: ansible_os_family == 'Debian' or ansible_os_family == 'Redhat'
 
 - name: Add user to wheel group on RedHat systems
   user:
