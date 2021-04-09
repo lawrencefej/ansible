@@ -53,5 +53,6 @@
         test_command: uptime
       when: reboot_required_file.stat.exists
       become: yes
-# - name: Configure Log Clients
-#   import_playbook: log.yaml
+
+- name: Configure Log Clients
+  import_playbook: log.yaml
