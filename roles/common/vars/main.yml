@@ -27,6 +27,7 @@ Debian_pkgs:
   - gnupg
   - lsb-release
   - python3-pip
+  # - open-iscsi
   # - bat
 
 Arch_pkgs:

@@ -26,6 +26,7 @@ thoth.home.lan
 k3sdev.home.lan
 devnode1.home.lan
 devnode2.home.lan
+ares.home.lan
 
 
 
@@ -38,6 +39,7 @@ thoth.home.lan
 k3sdev.home.lan
 devnode1.home.lan
 devnode2.home.lan
+ares.home.lan
 
 [logservers]
 #lxcdebian.home.lan
@@ -60,3 +62,4 @@ athena.home.lan
 #hermes.home.lan
 apollo.home.lan
 thoth.home.lan
+ares.home.lan

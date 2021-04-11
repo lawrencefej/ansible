@@ -11,8 +11,8 @@
     - common
     - users
     - role: git
-      vars:
-        gitbranch: server
+      # vars:
+      #   gitbranch: server
     - zsh
     - zshplugins
     - vim
@@ -35,6 +35,15 @@
     #     enabled: yes
     #     state: started
     #   become: yes
+
+    - name: Symlink .zshenv
+      file:
+        src: '{{ user_config }}/.dotfiles/zsh/zshenv/server/debian/.zshenv'
+        path: '{{ user_home }}/.zshenv'
+        state: link
+        owner: '{{ ansible_user }}'
+        group: '{{ ansible_user }}'
+        mode: '0644'
 
     - name: Check if a reboot is needed on all servers
       register: reboot_required_file

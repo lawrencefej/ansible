@@ -29,3 +29,13 @@
     - fzf
     # - certs
     - update
+
+  tasks:
+    - name: Symlink .zshenv
+      file:
+        src: '{{ user_config }}/.dotfiles/zsh/zshenv/computer/ubuntu/.zshenv'
+        path: '{{ user_home }}/.zshenv'
+        state: link
+        owner: '{{ ansible_user }}'
+        group: '{{ ansible_user }}'
+        mode: '0644'
