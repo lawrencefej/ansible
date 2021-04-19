@@ -1,0 +1,15 @@
+---
+# tasks file for ulauncher
+- name: Add ulauncher stable repository from PPA and install its signing key on Ubuntu target
+  ansible.builtin.apt_repository:
+    repo: ppa:agornostal/ulauncher
+  become: true
+  when: ansible_os_family == 'Debian'
+
+- name: Update apt and install brave browser
+  apt:
+    state: present
+    name: ulauncher
+    update_cache: yes
+  become: true
+  when: ansible_os_family == 'Debian'
