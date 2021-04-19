@@ -7,6 +7,9 @@ ansible_user='lawrence'
 [computer]
 localhost
 
+[laptop]
+tethys.home.lan
+
 [wsltest]
 192.168.10.166
 
